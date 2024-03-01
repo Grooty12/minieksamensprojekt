@@ -79,7 +79,7 @@ glucose = st.slider("Glukoseniveau", 0, 250, 100)
 blodtryk = st.slider("Blodtryk", 0, 200, 100)
 hudtykkelse = st.slider("Hudtykkelse", 0, 50, 25)
 insulin = st.slider("Insulingniveau", 0, 200, 100)
-diabetesmulighed = st.slider("Diabetismulighed", 0, 1, 0.5, "float")
+diabetesmulighed = st.slider("Diabetismulighed", 0.00, 1.00, 0.50, "float")
 alder = st.slider("Alder", 0, 150, 40)
 
 point = k_nn(data_plot, [children, glucose, blodtryk, hudtykkelse, insulin, diabetesmulighed, alder], 50)
