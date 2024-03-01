@@ -13,7 +13,6 @@ for n, row in enumerate(uploadedFile):
 
 
 def distance(a, b):
-    st.markdown([a, b])
     length_data = [(c - b[d]) ** 2 for d, c in enumerate(a) if d != len(a) - 1]
     return np.sqrt(np.sum(length_data))
 
@@ -80,10 +79,11 @@ glucose = st.slider("Glukoseniveau", 0, 250, 100)
 blodtryk = st.slider("Blodtryk", 0, 200, 100)
 hudtykkelse = st.slider("Hudtykkelse", 0, 50, 25)
 insulin = st.slider("Insulingniveau", 0, 200, 100)
+BMI = st.slider("BMI", 15, 35, 20)
 diabetesmulighed = st.slider("Diabetismulighed", 0.00, 1.00, 0.50, 0.01)
 alder = st.slider("Alder", 0, 150, 40)
 
-point = k_nn(data_plot, [children, glucose, blodtryk, hudtykkelse, insulin, diabetesmulighed, alder], 50)
+point = k_nn(data_plot, [children, glucose, blodtryk, hudtykkelse, insulin, BMI, diabetesmulighed, alder], 50)
 
 tekst = "Vi gætter du har diabetis" if point[-1] == 1 else "Vi gætter du ikke har diabetis"
 st.markdown(tekst)
