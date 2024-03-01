@@ -13,7 +13,7 @@ for n, row in enumerate(uploadedFile):
 
 
 def distance(a, b):
-    print(a, b)
+    st.markdown([a, b])
     length_data = [(c - b[d]) ** 2 for d, c in enumerate(a) if d != len(a) - 1]
     return np.sqrt(np.sum(length_data))
 
