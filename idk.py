@@ -4,7 +4,7 @@ import streamlit as st
 array_plot = []
 data_plot = []
 
-uploadedFile = st.file_uploader("Upload datafil", type=['csv', 'xlsx'], accept_multiple_files=False, key="fileUploader")
+uploadedFile = st.file_uploader("Upload datafil", type='csv')
 for n, row in enumerate(uploadedFile):
     if n != 0:
         if n == 3:
