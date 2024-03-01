@@ -3,6 +3,7 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 import csv
+import streamlit as st
 array_plot = []
 data_plot = []
 
@@ -77,6 +78,16 @@ def k_nn(knn_array, p, m, lengths=None):
         p.append(number)
         return p
 
+st.title("Har du diabetis?? Indtast værdier")
+children = st.slider("Mængde af børn", 0, 10)
+glucose = st.slider("Glukoseniveau", 0, 250)
+blodtryk = st.slider("Blodtryk", 0, 200)
+hudtykkelse = st.slider("Hudtykkelse", 0, 50)
+insulin = st.slider("Insulingniveau", 0, 200)
+diabetesmulighed = st.slider("Diabetismulighed", 0, 1)
+alder = st.slider("Alder", 0, 150)
 
 point = k_nn(data_plot, [1, 88.14, 63, 23, 149, 22, 0.67, 48.24], 50)
-print(point)
+
+tekst = "Vi gætter du har diabetis" if point[-1] == 1 else "Vi gætter du ikke har diabetis"
+st.markdown(tekst)
