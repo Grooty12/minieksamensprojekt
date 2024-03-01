@@ -7,9 +7,9 @@ data_plot = []
 uploadedFile = st.file_uploader("Upload datafil", type='csv')
 for n, row in enumerate(uploadedFile):
     if n != 0:
-        if n == 3:
-            print(row)
-        data_plot.append([float(a) for a in row])
+        str_list = row.decode().strip().split(',')
+        arr = np.array(str_list, dtype=float)
+        data_plot.append([a for a in arr])
 
 
 def distance(a, b):
