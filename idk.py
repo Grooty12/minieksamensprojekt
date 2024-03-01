@@ -74,15 +74,15 @@ def k_nn(knn_array, p, m, lengths=None):
         return p
 
 st.title("Har du diabetis?? Indtast værdier")
-children = st.slider("Mængde af børn", 0, 10)
-glucose = st.slider("Glukoseniveau", 0, 250)
-blodtryk = st.slider("Blodtryk", 0, 200)
-hudtykkelse = st.slider("Hudtykkelse", 0, 50)
-insulin = st.slider("Insulingniveau", 0, 200)
-diabetesmulighed = st.slider("Diabetismulighed", 0, 1)
-alder = st.slider("Alder", 0, 150)
+children = st.slider("Mængde af børn", 0, 10, 1)
+glucose = st.slider("Glukoseniveau", 0, 250, 100)
+blodtryk = st.slider("Blodtryk", 0, 200, 100)
+hudtykkelse = st.slider("Hudtykkelse", 0, 50, 25)
+insulin = st.slider("Insulingniveau", 0, 200, 100)
+diabetesmulighed = st.slider("Diabetismulighed", 0, 1, 0.5, step=0.1)
+alder = st.slider("Alder", 0, 150, 40)
 
-point = k_nn(data_plot, [1, 88.14, 63, 23, 149, 22, 0.67, 48.24], 50)
+point = k_nn(data_plot, [children, glucose, blodtryk, hudtykkelse, insulin, diabetesmulighed, alder], 50)
 
 tekst = "Vi gætter du har diabetis" if point[-1] == 1 else "Vi gætter du ikke har diabetis"
 st.markdown(tekst)
