@@ -4,14 +4,13 @@ import streamlit as st
 array_plot = []
 data_plot = []
 
-
-with open("Diabetes_prediction.csv", newline='') as csvfile:
-    data = csv.reader(csvfile)
-    for n, row in enumerate(data):
-        if n != 0:
-            if n == 3:
-                print(row)
-            data_plot.append([float(a) for a in row])
+uploadedFile = st.file_uploader("Upload datafil", type=['csv', 'xlsx'], accept_multiple_files=False, key="fileUploader")
+data = csv.reader(uploadedFile)
+for n, row in enumerate(data):
+    if n != 0:
+        if n == 3:
+            print(row)
+        data_plot.append([float(a) for a in row])
 
 
 def distance(a, b):
